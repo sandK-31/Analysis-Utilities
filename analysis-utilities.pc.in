@@ -1,0 +1,9 @@
+prefix=@PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: analysis-utilities
+Description: Analysis Utilities for Nuclear Measurements
+Libs: -L${libdir} -l@LIBNAME@
+Cflags: -I${includedir}
