@@ -70,7 +70,12 @@
                 autoPatchelfHook
               ];
 
-            buildInputs = [ root ] ++ cudaBuildInputs;
+            buildInputs =
+              [ root ]
+              ++ cudaBuildInputs
+              ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+                pkgs.llvmPackages.openmp
+              ];
 
             cmakeFlags = pkgs.lib.optionals cuda [
               "-DAU_USE_CUDA=ON"
